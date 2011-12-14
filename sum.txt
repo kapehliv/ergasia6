@@ -67,8 +67,17 @@ for(j:=0; j<lengthPoly; j++){
 	}
 }
 
-maxPower := max(power); //h megisti dunami tou poluwnumou
-stirNum := stirlingS2(maxPower, power); //Kalw ti sunartisi stirlingS2 gia tous suntelestes stirling
+
+//An den exw vrei arnhtikh dunamh upologizw to athroisma
+ if(dirtyBit!=1){
+  maxPower := max(power);
+  stirNum := stirlingS2(maxPower, power);
+  //print(stirNum);
+  print("The final sum is:");
+  final2:= factorialStirlinS2(stirNum, power, k,
+coeffic);//<----------thelw to teliko athroisma!!!!!!!!SOS!!!!
+ }
+
 
 }:;
 
