@@ -16,4 +16,54 @@
 /* ------------------------>Grapste panw apo tis sunarthseis sas eisodo kai eksodo tis sunarthshs.*/
 
 //Kuriws programma pou enwnei tis epimerous sunarthseis
-summ(poly,k):={}:;
+summ(poly,k):={
+
+  local polyTemp, lengthPoly, j, power, maxPower, stirNum, dirtyBit;
+  
+  power := []; //dunameis
+  stirNum := []; //arithmoi stirling
+  dirtyBit:=0; //elegxos gia <0 dunameis
+
+  polyTemp := string(poly); //Diaperash toy polywnymou ws String
+  k:= string(k);
+ 
+  lengthPoly := length(polyTemp);
+
+
+//Diaperash toy polywnymou ws String.. Gemizoume ton power
+//kai vriskoume an uparxei arnhtikh dunamh.
+
+for(j:=0; j<lengthPoly; j++){  
+  if((polyTemp[j] == k && j==lengthPoly-1 && dirtyBit!=1)){
+		power:= append(power,1);
+		power:= revlist(sort(power)); 
+	} 
+	else{
+		if(polyTemp[j] == k){
+			if(polyTemp[j+1]=="^"){
+				if(polyTemp[j+2]== "-"){ //arnhtikh dunamh.. Ypologise gia kathe arnhtikh dunamh to f(k)
+					print(factorialP(expr(polyTemp[j+3]),"-")); //<-----------------------------Thelw factorial!!!!!!!!!!!!!!!!!!!
+					dirtyBit:=1;
+				}
+				else{
+					if(dirtyBit!=1){
+						power:= append(power,expr(polyTemp[j+2]));
+						power:= revlist(sort(power));
+					}
+				}
+        
+			}
+			else{// k^1 = k
+				if(length(power)==0) {
+					power:= append(power,1);
+					power:= revlist(sort(power));
+				}
+				if( power[length(power)-1]!=1){
+					power:= append(power,1);
+					power:= revlist(sort(power));
+				}
+			}
+		}
+	}
+}
+}:;
