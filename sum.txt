@@ -66,6 +66,10 @@ for(j:=0; j<lengthPoly; j++){
 		}
 	}
 }
+
+maxPower := max(power); //h megisti dunami tou poluwnumou
+stirNum := stirlingS2(maxPower, power); //Kalw ti sunartisi stirlingS2 gia tous suntelestes stirling
+
 }:;
 
 
