@@ -187,11 +187,53 @@ power is:");
 
 
 
+//--------------------------------------  Teliko athroisma   ----------------------------------------//
 
+//Ylopoihsh telikou athroismatos
+//H sunarthsh auth pairnei ta ekshs orismata:
+//stirNum : Lista me tous suntelestes StirlingS2 
+//power: Lista me tis dunameis tou poluwnumou se fthinousa seira
+//k: ws pros poia metavlhth einai to poluwnumo
+//coeffic : Lista me tous suntelestes tou poluwnumou
+// Epistrefei: To teliko apotelesma se morfh expression
+factorialStirlinS2(stirNum, power, k, coeffic):={
 
+  local j, convList, stirLength, d, g, fd, final, c, t;
 
+  convList := []; //An diavasoume tin kathe seira tou StirlingS2 apo D->A 
+                  //tote exoume tous suntelestes me fthinousa seira
+  
+  fd := []; //To antistoixo fm(k)
+  final:=[]; // To teliko apotelesma
 
+  stirLength := length(stirNum);
+   
+  //ypologismos factorial
+  for(d:= max(power); d>0; d--){
+    fd := append(fd,factorialP(d,"+")); 
+  }
 
+  //ypologismos tou telikou athroismatos
+ for(j:=0; j<stirLength; j++){
+	convList:= convert(stirNum[j], base,10);
+	t:= length(fd)-power[j];
+	for(c:=0; c<length(convList); c++){   
+		if(c!=length(convList)-1){
+                   final := final + coeffic[length(coeffic) - power[j] -1 ] *  convList[c] * fd[t];
+	}
+		else{
+			final := final + coeffic[length(coeffic) - power[j] -1 ] *  convList[c] * (factorialP(1,"+"));
+		}
+		t:=t+1;    
+	} 
+ }
 
+  final:= final+coeffic[length(coeffic)-1];  //Prosthiki statherou orou
+  final:= collect(final);
+  print(final);
+  final:= simplify(final); //epimeristikh sto teliko athroisma
+
+  return(final);
+}:;
 
 
