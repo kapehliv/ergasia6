@@ -1,2 +1,19 @@
-/* To vlepw to arxeio, alla einai adeio!!*/
-/*Ksekina me ti vasiki sunartisi kai sunexizoume emeis!*/
+/* ONOMATA OMADAS */
+/* Lazaridis Lazaros (AEM: 705) */
+/* Pechlivanidou Katerina (AEM: 706) */
+/* Stagkopoulou Alexandra (AEM:708) */
+
+/* PERIGRAFH PROGRAMMATOS */
+
+/* To programma auto upologizei ena athroisma ths morfhs Σ(polywnumo(k)) apo k=0 mexri n-1.*/
+/* Gia thn ulopoihsh auth tha xreiastoume tous arithmous StirlingS2, pou apoteloun tous*/
+/* suntelestes gia th metavash apo aples dunameis se fthinouses paragontikes. */
+/* Tha xreiastoume mia sunarthsh pou na ulopoiei ton upologismo twn*/
+/* fm_[k] = FactorialPower[k, m+1]/(m+1). Akomh, tha xreiastei mia sunarthsh pou na */
+/* ulopoiei to teliko athroisma ws pros n.*/
+/* ------------------->Kalh epityxia sunadelfoi!!!!!!*/
+/* ---------------------->Dhlwste me ena aplo sxolio poios tha analabei poia sunarthsh.*/
+/* ------------------------>Grapste panw apo tis sunarthseis sas eisodo kai eksodo tis sunarthshs.*/
+
+//Kuriws programma pou enwnei tis epimerous sunarthseis
+summ(poly,k):={}:;
