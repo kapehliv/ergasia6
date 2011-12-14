@@ -137,3 +137,52 @@ stirlingS2(maxPower, power):={
 	return (power); //antikathistw ti lista power me tous antistoixous suntelestes
 
 }:;
+
+
+//--------------------------------------  FactorialPower        ----------------------------------------//
+//Ypologismos twn fm(k)
+//Eisodos:-----------
+//power: Lista me tis dunameis toy poluwnumou
+//signOf: Metavlhth pou elegxei an emfanizetai arnhtikos ektheths
+//Eksodos:-----------
+//To zhtoumeno ginomeno
+//Shmeiwsh: An uparxei kapoios arnhtikos ektheths tote epistrefetai to
+//factorialPower gi auton ton ektheth mono.
+
+factorialP(power, signOf):={
+
+       local g, fd, j;
+
+       fd:=1;
+
+        if(signOf== "+"){ //An oloi oi ekthetes einai thetikoi
+                for(g:=power; g>=0; g--){
+                    fd :=fd * (n-g);
+             }
+             fd := fd *( 1/(power+1));
+             return (fd);
+        }
+        else{ //An uparxei arnhtikos ektheths
+                  print(concat("                        ----------------------------->You gave
+a negative power: ",concat("-",string(power))));
+                print("                        ----------------------------->The factorial
+power is:");
+                for(g:=1; g<=power; g++){
+                    fd := fd * (n+g);
+             }
+             fd:=1/fd;
+             return(fd);
+        }
+
+}:;
+
+
+
+
+
+
+
+
+
+
+
