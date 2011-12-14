@@ -73,3 +73,67 @@ stirNum := stirlingS2(maxPower, power); //Kalw ti sunartisi stirlingS2 gia tous 
 }:;
 
 
+
+// -------------------------------- SYNTELESTES STIRLINGS2 --------------------------------------------------//
+//Ypologismos ton suntelestwn StirlingS2
+//Eisodos Synarthshs: 
+//maxPower: O megistos ektheths
+//power: oloi oi ekthetes
+//Exodos Synarthshs:
+//Antikatastash tou power me tous antistoixous suntelestes kathe dunamhs
+
+stirlingS2(maxPower, power):={
+
+
+	local n, k, temp, item, sePoioStoixeio, powerLength, g, a, b, stirList, concatList, integerFromList;
+
+	temp :=[];
+	powerLength :=0;
+	stirList := []; //Suntelestes StirlingS2
+	concatList := []; //Grammh tou "trigwnou" StirlingS2 me tous suntelestes
+
+      //Oi prwtes treis theseis tou "trigwnou" StirlingS2
+	temp:= append(temp, 1);//n=0,k=0 
+	temp:= append(temp, 0);//n=1,k=0
+	temp:= append(temp, 1);//n=1,k=1
+	
+      sePoioStoixeio :=3; 
+	  
+	for(n:=2; n<=maxPower; n++){ //Ypologismos twn suntelestwn (n  k) = k*(n-1  k) + (n-1  k-1)
+		for(k:=0; k<=n; k++){
+			if(k==0){ //Gia k=0 ola ta stoixeia einai 0
+				temp:= append(temp, 0); 
+				sePoioStoixeio := sePoioStoixeio+1 ;
+			}
+			if(k==n){ //Gia k=n ola ta stoixeia einai 1
+				temp:= append(temp, 1); 
+				sePoioStoixeio := sePoioStoixeio+1 ;
+			}
+			if(k!=0 && k!=n){ //Ta endiamesa upologizontai me ton typo
+				item := k* temp[sePoioStoixeio-n] + temp[sePoioStoixeio-n-1];
+				temp:= append(temp, item);
+				sePoioStoixeio := sePoioStoixeio+1 ;
+			}
+		}
+	} 
+	
+	powerLength := length(power);
+	
+	for(g:=0; g<powerLength; g++){ //Gia th dunamh pou dinoume, epestrepse thn antistoixh grammh StirlingS2
+		a:=0;
+		for(b:=0; b<= power[g]; b++){
+			a:=a+b;
+		}
+		for(b:=0; b< power[g]+1; b++){   
+			concatList := append(concatList, temp[a]); 
+			a:= a+1;
+		}
+		 
+		integerFromList := convert(revlist(concatList),base,10);
+		concatList:= [];
+		power[g]:=integerFromList;
+	}
+
+	return (power); //antikathistw ti lista power me tous antistoixous suntelestes
+
+}:;
